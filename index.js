@@ -4,7 +4,7 @@ const server = express();
 server.use(express.json())
 
 const PostRouter = require('./PostRouter')
-
+const port =  process.env.PORT || 5001;
 server.get('/', (req, res) => {
     res.send(
     `<h2>Lambda Hubs API</h>
@@ -15,6 +15,6 @@ server.get('/', (req, res) => {
 server.use('/api/posts', PostRouter);
 
 
-server.listen(5001, () => {
-    console.log('\n*** Server Running on http://localhost:5001 ***\n');
+server.listen(port, () => {
+    console.log(`\n*** Server Running on http://localhost:${port} ***\n`);
   });
